@@ -18,6 +18,7 @@ import lombok.Setter;
 @Entity
 @Table(name="DONATION")
 public class Donation {
+	@Id
 	private String name;
 	private String date;
 	private int amount; //in dollars

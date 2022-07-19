@@ -19,6 +19,7 @@ import lombok.Setter;
 @Entity
 @Table(name="USER")
 public class User {
+	@Id
 	private String firstName;
 	private String lastName;
 	private String email;
