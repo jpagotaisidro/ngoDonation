@@ -1,5 +1,7 @@
 package com.example.ngoDonation.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.ngoDonation.entity.User;
@@ -19,6 +21,11 @@ public class AdminService {
 	//delete user
 	public void deleteUser(User user) {
 		userRepo.delete(user);
+	}
+	
+	public List<User> getAllUser(){
+		List<User> users = userRepo.findAll();
+		return users;
 	}
 	
 	//edit user

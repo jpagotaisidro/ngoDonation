@@ -1,5 +1,7 @@
 package com.example.ngoDonation.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,8 +27,10 @@ public class AdminController {
 		
 		//list of users
 		@GetMapping("/users")
-		public String getUsers() {
-			return "users";
+		public List<User> getUsers(Model model) {
+			List<User> list= adminService.getAllUser();
+		     model.addAttribute("result", list);
+		     return list; 
 		}
 		
 		//add new user
