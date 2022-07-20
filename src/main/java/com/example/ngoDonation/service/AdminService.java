@@ -22,8 +22,10 @@ public class AdminService {
 	}
 	
 	//edit user
-	public User editUser(User user) {
-
-		return user;
+	public boolean editUser(int id) {
+		User temp = userRepo.findUserById(id);
+		temp.setAdmin(!temp.isAdmin());
+		userRepo.save(temp);
+		return temp.isAdmin();
 	}
 }

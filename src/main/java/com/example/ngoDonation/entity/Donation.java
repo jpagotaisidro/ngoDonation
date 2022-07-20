@@ -19,6 +19,7 @@ import lombok.Setter;
 @Table(name="DONATION")
 public class Donation {
 	@Id
+	private int id;
 	private String name;
 	private String date;
 	private int amount; //in dollars

@@ -7,5 +7,8 @@ import com.example.ngoDonation.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
-
+	
+	 User findUserById(int id);
+		
+	
 }
