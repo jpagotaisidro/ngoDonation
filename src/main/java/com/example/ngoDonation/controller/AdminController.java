@@ -14,17 +14,21 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.ngoDonation.entity.Donation;
 import com.example.ngoDonation.entity.User;
-import com.example.ngoDonation.repo.DonationRepository;
+// import com.example.ngoDonation.repo.DonationRepository;
 import com.example.ngoDonation.service.AdminService;
+import com.example.ngoDonation.service.DonationService;
 
 @RestController
 public class AdminController {
 
 		@Autowired
 		private AdminService adminService;
-		
+
 		@Autowired
-		private DonationRepository donationRepo;
+		private DonationService donationService;
+		
+		// @Autowired
+		// private DonationRepository donationRepo;
 		
 		@GetMapping("/")
 		public String blank() {
@@ -41,7 +45,7 @@ public class AdminController {
 		
 		@GetMapping("/donations")
 		public List<Donation> getDonations(ModelMap model) {
-			List<Donation> list= donationRepo.findAll();
+			List<Donation> list= donationService.getAllDonation();
 		     model.addAttribute("result", list);
 		     return list; 
 		}
