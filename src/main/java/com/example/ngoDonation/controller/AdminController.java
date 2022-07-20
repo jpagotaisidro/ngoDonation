@@ -17,6 +17,11 @@ public class AdminController {
 		@Autowired
 		private AdminService adminService;
 		
+		@GetMapping("/")
+		public String blank() {
+			return "hi this is root string";
+		}
+		
 		//list of users
 		@GetMapping("/users")
 		public String getUsers() {
