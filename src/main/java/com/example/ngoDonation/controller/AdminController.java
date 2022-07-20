@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.ngoDonation.entity.Donation;
 import com.example.ngoDonation.entity.User;
+import com.example.ngoDonation.repo.DonationRepository;
 import com.example.ngoDonation.service.AdminService;
 
 @RestController
@@ -20,6 +22,9 @@ public class AdminController {
 
 		@Autowired
 		private AdminService adminService;
+		
+		@Autowired
+		private DonationRepository donationRepo;
 		
 		@GetMapping("/")
 		public String blank() {
@@ -30,6 +35,13 @@ public class AdminController {
 		@GetMapping("/users")
 		public List<User> getUsers(ModelMap model) {
 			List<User> list= adminService.getAllUser();
+		     model.addAttribute("result", list);
+		     return list; 
+		}
+		
+		@GetMapping("/donations")
+		public List<Donation> getDonations(ModelMap model) {
+			List<Donation> list= donationRepo.findAll();
 		     model.addAttribute("result", list);
 		     return list; 
 		}
