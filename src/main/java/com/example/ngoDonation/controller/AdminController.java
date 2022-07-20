@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.ngoDonation.entity.User;
 import com.example.ngoDonation.service.AdminService;
@@ -40,4 +41,11 @@ public class AdminController {
 		public String editUser() {
 			return "edituser";
 		}
+		
+//		@RequestMapping("/users")
+//	    public ModelAndView getUsers() {
+//	        ModelAndView modelAndView = new ModelAndView();
+//	        modelAndView.setViewName("users.html");
+//	        return modelAndView;
+//	    }  
 }
