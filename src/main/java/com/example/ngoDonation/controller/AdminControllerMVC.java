@@ -30,7 +30,7 @@ public class AdminControllerMVC {
 	@RequestMapping(value="/save",method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("user") User user) {
 		adminService.createUser(user);
-		return "redirect:/donations";
+		return "redirect:/users";
 }
 
 }
