@@ -63,9 +63,11 @@ public class AdminController {
 		@PutMapping("/users/{id}")
 		public ResponseEntity<?> update(@RequestBody User user, @PathVariable int id) {
 			try {
+				System.out.println("test");
 				adminService.update(user, id);
 				return new ResponseEntity<>(HttpStatus.OK);
 			} catch (NoSuchElementException e) {
+				System.out.println("test1");
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
 		}
