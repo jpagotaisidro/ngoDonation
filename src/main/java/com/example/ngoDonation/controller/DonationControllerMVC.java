@@ -11,25 +11,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.ngoDonation.entity.User;
+import com.example.ngoDonation.entity.Donation;
+import com.example.ngoDonation.entity.Donation;
 import com.example.ngoDonation.service.AdminService;
+import com.example.ngoDonation.service.DonationService;
 
 @Controller
-public class AdminControllerMVC {
+public class DonationControllerMVC {
 	
 	@Autowired
-	AdminService adminService;
+	DonationService donationService;
 	
-	@RequestMapping("/mvc/new_user")
+	@RequestMapping("/mvc/new_donation")
 	public String showForm(Model model) {
-		User user = new User();
-		model.addAttribute(user);
-		return "new_user";
+		Donation donation = new Donation();
+		model.addAttribute(donation);
+		return "new_donation";
 	}
 	
-	@RequestMapping(value="/save",method = RequestMethod.POST)
-	public String saveUser(@ModelAttribute("user") User user) {
-		adminService.createUser(user);
+	@RequestMapping(value="/save_donation",method = RequestMethod.POST)
+	public String saveDonation(@ModelAttribute("donation") Donation donation) {
+		donationService.createDonation(donation);
 		return "redirect:/donations";
 }
 
