@@ -34,7 +34,7 @@ public class DonationControllerMVC {
 	@RequestMapping(value="/save_donation",method = RequestMethod.POST)
 	public String saveDonation(@ModelAttribute("donation") Donation donation) {
 		donationService.createDonation(donation);
-		return "redirect:/donations";
+		return "redirect:/donation_index";
 }
 	
 	@RequestMapping("/donation_index")

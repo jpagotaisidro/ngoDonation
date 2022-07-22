@@ -1,5 +1,7 @@
 package com.example.ngoDonation.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.ngoDonation.entity.Donation;
 import com.example.ngoDonation.entity.User;
 import com.example.ngoDonation.service.AdminService;
 
@@ -30,7 +33,14 @@ public class AdminControllerMVC {
 	@RequestMapping(value="/save",method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("user") User user) {
 		adminService.createUser(user);
-		return "redirect:/users";
+		return "redirect:/user_index";
+}
+	
+	@RequestMapping("/user_index")
+    public String users(Model model) {
+        List<User> list_of_users = adminService.getAllUser();
+        model.addAttribute("users",list_of_users);
+         return "user_index";
 }
 
 }
