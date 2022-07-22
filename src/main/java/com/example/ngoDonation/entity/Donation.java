@@ -1,5 +1,7 @@
 package com.example.ngoDonation.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,7 +22,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name="DONATION")
-public class Donation {
+public class Donation implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -28,7 +30,9 @@ public class Donation {
 	private String date;
 	private int amount; //in dollars
 	private String donationType;
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name="email", nullable = false)
-	private String email;
+//	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+//	@JoinColumn(name="user_ID", nullable = false)
+//	private User user;
+	
+	
 }

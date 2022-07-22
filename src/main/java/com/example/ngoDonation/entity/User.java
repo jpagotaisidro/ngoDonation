@@ -1,5 +1,6 @@
 package com.example.ngoDonation.entity;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -23,14 +24,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name="USER")
-public class User {
+public class User implements Serializable{
 	@Id
-	private String email;
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	private String firstName;
 	private String lastName;
+	private String email;
 	private boolean admin; //true is admin
-	@OneToMany(mappedBy = "donation", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<Donation> donations;
+//	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	private Set<Donation> donations;
 }
