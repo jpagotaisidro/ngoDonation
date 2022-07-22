@@ -13,40 +13,19 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.ngoDonation.entity.Donation;
-import com.example.ngoDonation.entity.User;
-import com.example.ngoDonation.service.AdminService;
 import com.example.ngoDonation.service.DonationService;
 
 @RestController
-public class AdminController {
+public class DonationController {
 
 		@Autowired
-		private AdminService adminService;
-
-		@GetMapping("/")
-		public String blank() {
-			return "hi this is root string";
-		}
+		private DonationService donationService;
 		
-		//list of users
-		@GetMapping("/users")
-		public List<User> getUsers(ModelMap model) {
-			List<User> list= adminService.getAllUser();
+		//list of donations
+		@GetMapping("/donations")
+		public List<Donation> getUsers(ModelMap model) {
+			List<Donation> list= donationService.getAllDonation();
 		     model.addAttribute("result", list);
 		     return list; 
 		}
-		
-		//add new user
-		@RequestMapping(value = "/adduser", method = {RequestMethod.GET, RequestMethod.POST})
-		public String addUser(Model model) {
-			model.addAttribute("user", new User());
-	        return "adduser";
-		}
-		
-		//edit user
-		@GetMapping("/edituser")
-		public String editUser() {
-			return "edituser";
-		}
-		
 }

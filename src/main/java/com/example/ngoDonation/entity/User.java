@@ -20,6 +20,7 @@ import lombok.Setter;
 @Table(name="USER")
 public class User {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String firstName;
 	private String lastName;
