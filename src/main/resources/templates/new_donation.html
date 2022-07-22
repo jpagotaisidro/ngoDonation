@@ -21,7 +21,11 @@
       <input type="text" th:field="*{amount}"/><br>
       
       Type:
-      <input type="text" th:field="*{donationType}"/><br> 
+      <select th:field="*{donationType}">
+    	<option value="misc">Misc</option>
+    	<option value="Mission Trip">Mission Trip</option>
+    	<option value="Fun Run">Fun Run</option>
+	</select><br> 
 
       <button type="submit">save</button>
 

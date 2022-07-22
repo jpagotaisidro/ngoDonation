@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+      
+<head>
+    <meta charset="ISO-8859-1">
+    <title>NGO Donation</title>
+</head>
+<body>
+	<h3>Donations</h3>
+	<table>
+	<tbody>
+            <tr th:each="donation:${donation}">
+                <td th:text="${donation.name}"></td>
+                <td th:text="${donation.date}"></td>
+                <td th:text="${donation.amount}"></td>
+                <td th:text="${donation.donationType}"></td>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

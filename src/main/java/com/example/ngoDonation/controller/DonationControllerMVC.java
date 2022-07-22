@@ -1,5 +1,7 @@
 package com.example.ngoDonation.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,6 +35,13 @@ public class DonationControllerMVC {
 	public String saveDonation(@ModelAttribute("donation") Donation donation) {
 		donationService.createDonation(donation);
 		return "redirect:/donations";
+}
+	
+	@RequestMapping("/donation_index")
+    public String donations(Model model) {
+        List<Donation> list_of_donations = donationService.getAllDonation();
+        model.addAttribute("donations",list_of_donations);
+         return "donation_index";
 }
 
 }
