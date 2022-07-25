@@ -5,9 +5,18 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
 
 <body>
+
+	<ul>
+  		<li><a href="#">Home</a></li>
+  		<li><a href="../user_index">Users</a></li>
+  		<li><a href="new_user">New User</a></li>
+  		<li><a href="../donation_index">Donation Index</a></li>
+  		<li><a href="new_donation">New Donation</a></li>
+	</ul>
 
 <form action="#" th:action="@{/save}" th:object="${user}" method="post">
 
@@ -21,7 +30,10 @@
       <input type="text" th:field="*{email}"/><br>
       
       Admin:
-      <input type="text" th:field="*{admin}"/><br> 
+      <select th:field="*{admin}">
+    	<option value="false">False</option>
+    	<option value="true">True</option>
+	</select>
 
       <button type="submit">save</button>
 
