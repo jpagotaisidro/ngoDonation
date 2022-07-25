@@ -8,7 +8,7 @@
 </head>
 <body>
 	<ul>
-  		<li><a href="#">Home</a></li>
+  		<li><a href="/">Home</a></li>
   		<li><a href="user_index">Users</a></li>
   		<li><a href="mvc/new_user">New User</a></li>
   		<li><a href="donation_index">Donation Index</a></li>
@@ -17,6 +17,12 @@
 	<h3>Donations</h3>
 	<table>
 	<tbody>
+			<tr>
+    			<th>Name</th>
+    			<th>Date</th>
+    			<th>Amount($)</th>
+    			<th>Donation Type</th>
+  			</tr>
             <tr th:each="donation:${donations}">
                 <td th:text="${donation.name}"></td>
                 <td th:text="${donation.date}"></td>

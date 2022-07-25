@@ -33,7 +33,14 @@ public class AdminController {
 
 		@GetMapping("/")
 		public String blank() {
-			return "Welcome to NGO Donation";
+			return "Welcome to NGO Donation <br>"
+					+ "<ul>\r\n"
+					+ "  		<li><a href=\"/\">Home</a></li>\r\n"
+					+ "  		<li><a href=\"/user_index\">Users</a></li>\r\n"
+					+ "  		<li><a href=\"mvc/new_user\">New User</a></li>\r\n"
+					+ "  		<li><a href=\"/donation_index\">Donation Index</a></li>\r\n"
+					+ "  		<li><a href=\"mvc/new_donation\">New Donation</a></li>\r\n"
+					+ "	</ul>";
 		}
 		
 		//list of users

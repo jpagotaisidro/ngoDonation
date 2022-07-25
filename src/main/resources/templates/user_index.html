@@ -3,12 +3,13 @@
       xmlns:th="http://www.thymeleaf.org">
       
 <head>
+	<link rel="stylesheet" type="text/css" href="/css/styles.css">
     <meta charset="ISO-8859-1">
     <title>Users</title>
 </head>
 <body>
 	<ul>
-  		<li><a href="#">Home</a></li>
+  		<li><a href="/">Home</a></li>
   		<li><a href="user_index">Users</a></li>
   		<li><a href="mvc/new_user">New User</a></li>
   		<li><a href="donation_index">Donation Index</a></li>
@@ -17,6 +18,13 @@
 	<h3>Users</h3>
 	<table>
 	<tbody>
+			 <tr>
+    			<th>ID</th>
+    			<th>First Name</th>
+    			<th>Last Name</th>
+    			<th>Email</th>
+    			<th>Admin</th>
+  			</tr>
             <tr th:each="user:${users}">
             	<td th:text="${user.id}"></td>
                 <td th:text="${user.FirstName}"></td>
